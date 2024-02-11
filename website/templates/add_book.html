@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block head %}
+<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Zelenka Library</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="/static/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="/static/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="/static/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="/static/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="/static/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="/static/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="/static/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/add_style.css">
+{% endblock %}
+{% block main %}
+	<div class="breadcrumb-section breadcrumb-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 text-center">
+						<div class="breadcrumb-text">
+							<h1>Library</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div>
+    <form id="creation-book-form" class="creation_book" action="" method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author" required><br>
+            <label for="genre">Genre:</label><br>
+            <select id="genre" name="genre" required>
+                {% for genre in genres %}
+                <option value="{{ genre.genre_id }}">{{ genre.name }}</option>
+                {% endfor %}
+            </select><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
+            <label for="link">Link:</label><br>
+            <input type="text" id="link" name="link" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}

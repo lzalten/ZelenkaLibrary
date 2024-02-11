@@ -1,0 +1,81 @@
+
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="hero-area hero-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 offset-lg-2 text-center">
+					<div class="hero-text">
+						<div class="hero-text-tablecell">
+							<p class="subtitle">Books for offtopik</p>
+							<h1>Zelenka GURU</h1>
+							<div class="hero-btns">
+								<a href="{% url 'library' %}" class="boxed-btn">Go to library</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end hero area -->
+
+	<!-- product section -->
+	<div class="product-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3><span class="orange-text">Our</span> Books</h3>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="/static/img/products/product-img-1.jpg" alt=""></a>
+						</div>
+						<h3>OFFTopic's rules</h3>
+						<a href={% url 'library' %} class="cart-btn"><i class="fas fa-shopping-cart"></i> Go to the book</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="/static/img/products/product-img-2.jpg" alt=""></a>
+						</div>
+						<h3>Root's secrets</h3>
+						<a href={% url 'library' %} class="cart-btn"><i class="fas fa-shopping-cart"></i> Go to the book</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="/static/img/products/product-img-3.jpg" alt=""></a>
+						</div>
+						<h3>Ferma catching</h3>
+						<a href={% url 'library' %} class="cart-btn"><i class="fas fa-shopping-cart"></i> Go to the book</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end product section -->
+
+
+	<!-- testimonail-section -->
+	<div class="testimonail-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="testimonial-sliders">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

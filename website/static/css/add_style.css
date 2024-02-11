@@ -1,0 +1,75 @@
+#creation-book-form body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.creation_book {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#creation-book-form form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    align-items: center;
+    order-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#creation-book-form label,
+#creation-book-form input,
+#creation-book-form select,
+#creation-book-form textarea {
+     margin: 0 auto;
+     display: block;
+     text-align: left;
+     align-items: center;
+     margin-bottom: 10px;
+}
+
+#creation-book-form input[type="text"],
+#creation-book-form textarea {
+     margin: 0 auto;
+     width: 40%;
+     padding: 8px;
+     align-items: center;
+     border-radius: 3px;
+     border: 1px solid #ccc;
+}
+
+#creation-book-form select {
+     margin: 0 auto;
+     width: 40%;
+     padding: 8px;
+     border-radius: 3px;
+     border: 1px solid #ccc;
+     align-items: center;
+     background-color: white;
+     appearance: none;
+}
+
+#creation-book-form input[type="submit"] {
+     width: 30%;
+     padding: 10px;
+     border: none;
+     margin: 0 auto;
+     border-radius: 3px;
+     align-items: center;
+     background-color: #007bff;
+     color: white;
+     cursor: pointer;
+}
+
+#creation-book-form input[type="submit"]:hover {
+     background-color: #0056b3;
+     margin: 0 auto;
+     align-items: center;
+}
