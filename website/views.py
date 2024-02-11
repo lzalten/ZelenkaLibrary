@@ -20,17 +20,17 @@ class HomePageView(View):
         return render(request, 'home.html')
 
 
-class SignUpView(CreateView):
+class SignUpView(CreateView):   # registration
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
 
 
-class LibraryView(View):
+class LibraryView(View):  # library
 
     def get(self, request):
-        books = Book.objects.all()
-        genres = Genre.objects.all()
+        books = Book.objects.all()  # get all book
+        genres = Genre.objects.all()  # get all genres
         return render(request, 'library.html', context={'books': books,
                                                         'genres': genres})
 
@@ -38,8 +38,8 @@ class LibraryView(View):
 class MyBooks(LoginRequiredMixin,View):
 
     def get(self, request):
-        books = Book.objects.filter(user=request.user)
-        genres = Genre.objects.all()
+        books = Book.objects.filter(user=request.user)  # get all books where user == requested user
+        genres = Genre.objects.all()  # get all genres
         return render(request, 'my_books.html', context={'books': books,
                                                          'genres': genres})
 
@@ -47,11 +47,11 @@ class MyBooks(LoginRequiredMixin,View):
 class AddBook(LoginRequiredMixin, View):
 
     def get(self, request):
-        genres = Genre.objects.all()
+        genres = Genre.objects.all()  # get all genres
         return render(request, 'add_book.html', context={'genres': genres})
 
     def post(self, request):
-        try:
+        try:  # fill book form
             name = request.POST.get('name')
             author = request.POST.get('author')
             genre = Genre.objects.get(genre_id=int(request.POST.get('genre')))
@@ -59,7 +59,7 @@ class AddBook(LoginRequiredMixin, View):
             link = request.POST.get('link')
         except Exception as e:
             return render(request, 'add_book')
-        Book.objects.create(
+        Book.objects.create(  # create book object
             user=request.user,
             name=name,
             author=author,
@@ -73,7 +73,7 @@ class AddBook(LoginRequiredMixin, View):
 class SingleBook(View):
 
     def get(self, request, book_id):
-        book = Book.objects.get(book_id=book_id)
+        book = Book.objects.get(book_id=book_id)  # get single book object
         return render(request, 'single_book.html', context={'book': book,
                                                             'rel_books': [book]})
 
