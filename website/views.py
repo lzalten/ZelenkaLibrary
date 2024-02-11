@@ -1,5 +1,6 @@
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.template import Context
 from django.views import View
@@ -78,9 +79,36 @@ class SingleBook(View):
                                                             'rel_books': [book]})
 
 
+class SearchBooks(View):
+
+    def get(self, request, keyword):
+        books = Book.objects.filter(
+            Q(name__icontains=keyword) |
+            Q(author__icontains=keyword) |
+            Q(genre__name__icontains=keyword)
+        )
+        genres = Genre.objects.all()  # get all genres
+        if books is None:
+            return redirect('library')
+        else:
+            return render(request, 'search_books.html', context={'books': books,
+                                                                 'genres': genres})
+
 class LogoutView(LoginRequiredMixin, View):
     def get(self, request):
         logout(request)
         return redirect('login')
+
+
+class DeleteBook(View):
+
+    def get(self, request, book_id):
+        try:
+            Book.objects.get(book_id=book_id).delete()
+            return redirect('my_books')
+        except:
+            pass
+
+
 
 

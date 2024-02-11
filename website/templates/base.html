@@ -93,8 +93,10 @@
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
 							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
+							<input id="textInput" type="text" placeholder="Keywords">
+							<a id="redirectLink" href='#'>
+								<button type="submit">Search <i class="fas fa-search"></i></button>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -127,6 +129,16 @@
 
 	<!-- jquery -->
     {% block jquery %}
+	<script>
+		var textInput = document.getElementById("textInput");
+		var redirectLink = document.getElementById("redirectLink");
+
+		textInput.addEventListener("input", function() {
+
+			var keyword = textInput.value;
+				redirectLink.href = '/w/search_books/'+keyword;
+		});
+	</script>
 	<script src="/static/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
